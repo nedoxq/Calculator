@@ -1,7 +1,13 @@
 var display = document.getElementById("display");
 
+function isOperator(char) {
+    return ['+', '-', '*', '/'].includes(char);
+}
+
 function addToDisplay(input){
-    display.value += input;
+    if (!(isOperator(input) && isOperator(display.value.charAt(display.value.length - 1)))) {
+        display.value += input;
+    }
 }
 
 function clearDisplay(){
